@@ -1,13 +1,16 @@
 package org.coretechies.ui;
 
+//important packages that should be import
 import org.coretechies.model.*;
 
 import javax.swing.*;
 import java.awt.*;
 
+import static org.coretechies.ui.ContactBookScreen.*;
+
 public class AddNewContactScreen {
 
-     JFrame addContactF;
+    JFrame addContactF;
     JLabel nameL, numberL;
     public static JTextField nameT, numberT;
     JButton saveContact;
@@ -41,9 +44,12 @@ public class AddNewContactScreen {
         addContactF.add(saveContact);
 
         saveContact.addActionListener(e -> {
+            mainFrame.dispose();
             UpdateContacts perform = new UpdateContacts();
             perform.addNewContacts();
             addContactF.dispose();
+            ContactBookScreen showScreen = new ContactBookScreen();
+            showScreen.showContactScreen();
         });
     }
 
